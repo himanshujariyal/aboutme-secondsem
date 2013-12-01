@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+	<head>
+
+		<meta charset="utf-8">
+
+		<title>ABOUT ME-himanshu</title>
+
+		<meta name="description" content="himanshu jariyal about me iitr">
+		<meta name="author" content="himanshu">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!--script for animated slide show-->
+
+		<link rel="stylesheet" href="css/kontext.css">
+		<link rel="stylesheet" href="css/demo.css">
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+		 <!--script for come out box-->
+
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/avgrund.css">
+		<script>
+			function openDialog() {
+
+				Avgrund.show( "#default-popup" );
+			}
+			function closeDialog() {
+				Avgrund.hide();
+			}
+		</script>
+
+
+	</head>
+	<body  link="#91cd85" alink="white" vlink="white">
+
+		<!--aside will be the pop out box-->
+
+		<aside id="default-popup" class="avgrund-popup">
+			<h2 style="color:black;">hey!</h2>
+			<h2 style="color:black;">Contact Me: 7417871072 </h2>
+			<h2 style="color:black;">Mail Me: <a href="mailto:himanshujariyal@gmail.com">himanshujariyal@gmail.com</a></h2>
+			
+			
+			<button onclick="javascript:closeDialog();">Close</button>
+		</aside>
+		<div class="avgrund-cover"></div>
+
+		<script type="text/javascript" src="js/avgrund.js"></script>
+
+		
+
+		<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+		
+
+
+
+
+
+			<ul id="top_menu" class="nav">
+				<li id="l1" >HIMANSHU JARIYAL</li>
+				<li id="l2" ><a href="file:///C:/Users/Himanshu/Desktop/project%20fuss/kontext-master/index.html">_______</a></li>
+				<li id="l3" ><a href="www.facebook .com">_____________</a></li>
+				<li id="l4" ><a href="www.facebook .com">_____________</a></li>
+				<li id="l5" ><a href="javascript:openDialog();">_____________</a></li>
+			</ul>
+		
+
+
+	
+
+		<article class="kontext">
+			<div class="layer one show">
+
+				<h1>Hello! and Welcome to my online portfolio.<br>
+					</h1>
+				<p>Know Me. Use the dots below or your keyboard arrows.</p>
+
+				
+
+			</div>
+			<div class="layer seven"><h1>I am Himanshu Jariyal ,a newbie graphic designer who is specialising in functional front end<br> web design and creative solutions.</h1></div>
+			<div class="layer two">
+				<h1>In high school, I was that kid that seemed to never be paying attention. Seemingly in my own world of doodles and drawings. I’ve had a pencil in my hand since I was in diapers. Things never change …. I’m no longer in diapers though.</h1>
+				
+			</div>
+			<div class="layer three" id="mycontent">
+				<h1>When I started college I originally had the idea of going into animation. After doing some crazy stuff, and getting instant gratification of praise from others, I was hooked. The internet was my outlet. A new way to show and share my passions. Real adventure started with selection in IMG. I am so happy that I made that decision.</h1>
+			</div>
+			<div class="layer four"><h1>I do the work at <a href="">IMG LABS</a> .This is what gets me out of bed in the morning.I do because I love it. I like the Labs. I like the people I meet. I like to talk nonstop. I like to make the web a better place. Hopefully we cross paths in the real world someday and we can make it a better place together.</h1></div>
+			<div class="layer five"><h1>Learn more about me or contact <br><a href="">Facebook</a><br><a href="">Gmail</a><br><a href="">Github</a><br></h1></div>
+			<div class="layer six"><br><br><br><br><h1>To know more read my <a href="">Blogs</a> or see <a href="">My Works</a></h1></div>
+		</article>
+
+		<ul class="bullets"></ul>
+
+		
+
+		<script src="js/kontext.js"></script>
+		<script>
+			// Create a new instance of kontext
+			var k = kontext( document.querySelector( '.kontext' ) );
+
+
+			// API METHODS:
+
+			// k.prev(); // Show prev layer
+			// k.next(); // Show next layer
+			// k.show( 3 ); // Show specific layer
+			// k.getIndex(); // Index of current layer
+			// k.getTotal(); // Total number of layers
+
+
+		
+
+			var bulletsContainer = document.body.querySelector( '.bullets' );
+
+			// Create one bullet per layer
+			for( var i = 0, len = k.getTotal(); i < len; i++ ) {
+				var bullet = document.createElement( 'li' );
+				bullet.className = i === 0 ? 'active' : '';
+				bullet.setAttribute( 'index', i );
+				bullet.onclick = function( event ) { k.show( event.target.getAttribute( 'index' ) ) };
+				bullet.ontouchstart = function( event ) { k.show( event.target.getAttribute( 'index' ) ) };
+				bulletsContainer.appendChild( bullet );
+			}
+
+			// Update the bullets when the layer changes
+			k.changed.add( function( layer, index ) {
+				var bullets = document.body.querySelectorAll( '.bullets li' );
+				for( var i = 0, len = bullets.length; i < len; i++ ) {
+					bullets[i].className = i === index ? 'active' : '';
+				}
+			} );
+
+
+			//declaring beep one
+			var beepOne = $("#beep-two")[0];
+			document.addEventListener( 'keyup', function( event ) {
+				if( event.keyCode === 37 ) k.prev();beepOne.play();
+				if( event.keyCode === 39 ) k.next();beepOne.play();
+			}, false );
+
+			
+
+			var touchX = 0;
+			var touchConsumed = false;
+
+			document.addEventListener( 'touchstart', function( event ) {
+				touchConsumed = false;
+				lastX = event.touches[0].clientX;
+			}, false );
+
+			document.addEventListener( 'touchmove', function( event ) {
+				event.preventDefault();
+
+				if( !touchConsumed ) {
+					if( event.touches[0].clientX > lastX + 10 ) {
+						k.prev();
+						touchConsumed = true;
+					}
+					else if( event.touches[0].clientX < lastX - 10 ) {
+						k.next();
+						touchConsumed = true;
+					}
+				}
+			}, false );
+
+		</script>
+
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+		<!--script for audio beep-->
+
+		<script>$("#top_menu a")
+         .each(function(i) {
+         if (i != 0) { 
+           $("#beep-two")
+           .clone()
+           .attr("id", "beep-two" + i)
+           .appendTo($(this).parent()); 
+          }
+         $(this).data("beeper", i);
+          })
+          .mouseenter(function() {
+          $("#beep-two" + $(this).data("beeper"))[0].play();
+           });
+          $("#beep-two").attr("id", "beep-two0");</script>
+
+	</body>
+</html>
